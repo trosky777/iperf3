@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" type="text/css" href="css/shell-wrap.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+
+    <title>Iperf Speed Testing Web Interface</title>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="js/form.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.0.slim.min.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    //auto expand textarea
+    function adjust_textarea(h) {
+      h.style.height = "20px";
+      h.style.height = (h.scrollHeight)+"px";
+    }
+
+  </script>
+  </head>
+  <body>
+    <div class="container animated fadeIn">
+      <div class="logo">
+        <img id="logo" src="images/logo.png" alt="Logo" />
+      </div>
+      <div class="row">
+        <div class="col col-xs-5">
+          <form id="formx" method="post" action="results.php" target="iframex">
+          <input id="typex" name="type" type="hidden" value="0"/>
+          <h2>Iperf Web</h2>
+            <div class="form-group">
+              <label for="prog">Program</label>
+              <select class="form-control" id="prog" name="prog" placeholder="Type">
+                <option value="Receiver" >Receiver</option>
+                <option value="Sender" selected="selected">Sender</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="target">Server</label>
+              <input class="form-control" id="target" name="target" type="text" maxlength="255" placeholder="Server" value=""/>
+            </div>
+            <div class="form-group">
+              <label for="port">Port Number</label>
+              <input class="form-control" id="port" name="port" type="text" maxlength="255" placeholder="5201" value=""/>
+            </div>
+            <div class="form-group">
+              <label for="params">Params</label>
+              <input class="form-control" id="params" name="params" type="text" maxlength="255" placeholder="-n 500M -b 500M" value=""/>
+            </div>
+            <button type="submit" class="btn btn-info">Start</button>
+          </form>
+        </div>
+        <div class="col col-xs-7">
+          <div class="table-responsive">
+            <h3>SERVER SPECIFIC OPTIONS</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th width="150px">Command line option</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>-s</strong>, --server</td>
+                  <td>Run iPerf in server mode. (This will only allow one iperf connection at a time)</td>
+                </tr>
+                <tr>
+                  <td><strong>-D</strong>, --daemon</td>
+                  <td>Run the server in background as a daemon.</td>
+                </tr>
+                <tr>
+                  <td><strong>-I</strong>, --pidfile<i><strong>file</strong></i></td>
+                  <td>write a file with the process ID, most useful when running as a daemon.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive">
+            <h3>CLIENT SPECIFIC OPTIONS</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th width="150px">Command line option</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>-c</strong>, --client</td>
+                  <td>Run iPerf in client mode, connecting to an iPerf server running on <i><strong>host</strong></i>.</td>
+                </tr>
+                <tr>
+                  <td><strong>-b</strong>, --bandwidth </td>
+                  <td>Set target bandwidth to n bits/sec (default 1 Mbit/sec for UDP, unlimited for TCP). If there are multiple streams (-P flag),
+                  the bandwidth limit is applied separately to each stream.</td>
+                </tr>
+                <tr>
+                  <td><strong>-n</strong>, --num </td>
+                  <td>The number of buffers to transmit. Normally, iPerf sends for 10
+                    seconds. The -n option overrides this and sends an array of <i><strong>len</strong></i>
+                  bytes <i><strong>num</strong></i> times, no matter how long that takes.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="width: 100%">
+          <h2>Results</h2>
+        </div>
+        <div class="shell-wrap">
+          <p class="shell-top-bar">/var/www/html/iperf/</p>
+          <ul class="shell-body">
+        <pre id="dynamic"></pre>
+        <iframe id="iframex" name="iframex" style="display:none" ></iframe>
+      </div>
+    </div>
+  </body>
+</html>
