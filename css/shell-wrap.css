@@ -11,10 +11,10 @@
 .shell-top-bar {
   text-align: center;
   color: #525252;
-  padding: 5px 0;
+  padding: 8px 0;
   margin: 0;
   text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
-  font-size: 0.85em;
+  font-size: 1em;
   border: 1px solid #CCCCCC;
   border-bottom: none;
 
@@ -41,7 +41,7 @@
   list-style: none;
   background: #141414;
   color: #45D40C;
-  font: 0.8em 'Andale Mono', Consolas, 'Courier New';
+  font: 0.9em 'Andale Mono', Consolas, 'Courier New';
   line-height: 1.6em;
 
   -webkit-border-bottom-right-radius: 3px;
@@ -59,7 +59,7 @@
   top: 0;
 }
 
-.shell-body li {
+.shell-body {
   word-wrap: break-word;
   position: relative;
   padding: 0 0 0 15px;

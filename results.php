@@ -53,17 +53,17 @@ $descriptorspec = array(
 flush();
 $proc = proc_open($command, $descriptorspec, $pipes, realpath('./'), array());
 if (is_resource($proc)) {
-    print "Test execution begins...\n";
+    echo "Test execution begins...\n";
     flush();
     while ($s = fgets($pipes[1])) {
-        print '<li>' . $s . '<li>';
+        echo '<li>' . $s . '<li>';
         flush();
     }
     while ($s = fgets($pipes[2])) {
-        print '<li>' . $s . '<li>';
+        echo '<li>' . $s . '<li>';
         flush();
     }
-    print '<li>' . "Test execution has ended...\n" . '<li>';
+    echo '<li>' . "Test execution has ended...\n" . '<li>';
     flush();
 }
 

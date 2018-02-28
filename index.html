@@ -29,7 +29,6 @@
       h.style.height = "20px";
       h.style.height = (h.scrollHeight)+"px";
     }
-
   </script>
   </head>
   <body>
@@ -61,7 +60,7 @@
               <label for="params">Params</label>
               <input class="form-control" id="params" name="params" type="text" maxlength="255" placeholder="-n 500M -b 500M" value=""/>
             </div>
-            <button type="submit" class="btn btn-info">Start</button>
+            <button type="submit" class="btn btn-lg btn-info">Start</button>
           </form>
         </div>
         <div class="col col-xs-7">
@@ -70,7 +69,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th width="150px">Command line option</th>
+                  <th width="150px">CLI option</th>
                   <th>Description</th>
                 </tr>
               </thead>
@@ -95,7 +94,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th width="150px">Command line option</th>
+                  <th width="150px">CLI option</th>
                   <th>Description</th>
                 </tr>
               </thead>
@@ -121,15 +120,9 @@
         </div>
       </div>
       <div>
-        <div style="width: 100%">
-          <h2>Results</h2>
-        </div>
-        <div class="shell-wrap">
-          <p class="shell-top-bar">/var/www/html/iperf/</p>
-          <ul class="shell-body">
-        <pre id="dynamic"></pre>
-        <iframe id="iframex" name="iframex" style="display:none" ></iframe>
-      </div>
+       <p class="shell-top-bar">RESULTS</p>
+       <pre class="shell-body" id="dynamic"></pre>
+       <iframe id="iframex" name="iframex" style="display:none" ></iframe>
     </div>
   </body>
 </html>
